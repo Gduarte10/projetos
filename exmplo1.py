@@ -1,3 +1,8 @@
+'''
+Data: 07/06/2024
+desenvolvido por: Gabriel 
+'''
+
 print("hello, word")
 
 print(5+2)
