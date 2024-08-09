@@ -65,3 +65,16 @@ while True:
 
 for aluno in alunos:
     impressao(aluno)
+    print('')
+
+busca = input('Digite a matricula do aluno que deseja ver os dados:')
+achei = ''
+for alunos in alunos:
+    if busca == aluno.matricula:
+        achei = aluno
+        break
+
+if achei != '':
+    impressao(achei)
+else:
+    print('Matricula não encontrada')
