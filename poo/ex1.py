@@ -33,16 +33,38 @@ def impressao(aluno):
     print(f'Conceito: {aluno.conceito}')
     print(f'Resultado: {aluno.resultado}')
 
-aluno1 = Aluno(nome='Douglas', matricula='20231001', notas=[8, 7, 9])
-aluno1.media = sum(aluno1.notas) / len(aluno1.notas)
-aluno1.conceito = aluno1.conceito_aluno()
-aluno1.resultado = aluno1.resultado_aluno()
+alunos = []
+while True:
+    notas = []
+    nome = input('Digite o nome: ')
+    matricula = input('Digite a matricula: ')
+    for i in range(3):
+        nota = float(input(f'Digite a nota {i+1}: '))
+        notas.append(nota)
+    aluno = Aluno(nome, matricula, notas)
+    aluno.media = sum(aluno.notas) / len(aluno.notas)
+    aluno.conceito = aluno.conceito_aluno()
+    aluno.resultado = aluno.resultado_aluno()
+    alunos.append(aluno)
 
-aluno2 = Aluno(nome='Gabriel', matricula='20231002', notas=[6.5, 4, 3])
-aluno2.media = sum(aluno2.notas) / len(aluno2.notas)
-aluno2.conceito = aluno2.conceito_aluno()
-aluno2.resultado = aluno2.resultado_aluno()
+    sair = input('Digite s para sair ou enter para continuar: ')
 
-impressao(aluno1)
-print('')
-impressao(aluno2)
+    if sair.upper() == 'S':
+        break
+
+for aluno in alunos:
+    impressao(aluno)
+    print('')
+
+print('  #######Busca do aluno########  ')
+busca = input('Digite a matricula do aluno que seja ver os dados: ')
+
+achei = ''
+for aluno in alunos:
+    if busca == aluno.matricula:
+        achei = aluno
+        break
+if achei != '':
+    impressao(achei)
+else:
+    print('Matrícula não encontrada.')
