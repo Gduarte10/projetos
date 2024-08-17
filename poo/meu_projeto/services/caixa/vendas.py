@@ -27,3 +27,7 @@ def venda_produto(produtos):
         print(f'Estoque insuficiente: {produto.quantidade}')
     else:
         print('Produto não encontrado!')
+
+
+
+        
