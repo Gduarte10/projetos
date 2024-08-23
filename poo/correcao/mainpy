@@ -1,0 +1,40 @@
+from models.pizza import Pizza
+from models.pizza_especial import PizzaEspecial
+from models.pedidos import Pedido
+
+lista_pizzas = ['Calabresa', 'Portugesa', ' Napolitana']
+lista_adicionais = ['pimentão', 'cheddar', 'borada de chocolate']
+adicionais = []
+pizzas = []
+print('''
+    Preços: P -10, M - 20, G - 30
+    1- Calabresa
+    2- Portugesa
+    3- Napolitana
+''')
+op = input('escolha a pizza:')
+tamanho = input('tamanho [P, M, G]:')
+
+escolha = input('Deseja algum adicional[S - sim, N - não]?:')
+if escolha.upper() == 'S':
+    while escolha.upper() == 'S':
+        adicional = input(''' Informe o adicional
+                          1 - pimentão
+                          2 - cheddar
+                          3 - borada de chocolate
+                        ''')
+        adicionais.append(adicional)
+        escolha = input('Deseja mais algum adicional [S - Sim, N - Não]')
+else:
+    pizza = Pizza(pizzas[op-1],tamanho)
+    pizza.calcular_preco
+
+
+
+
+
+pizza1 = Pizza('calaboca', 'M')
+pizza1.calcular_preco()
+
+pizza3 = PizzaEspecial('calabresa', 'M', ['muçarela','cheddar'])
+pizza3.calcular_preco()
